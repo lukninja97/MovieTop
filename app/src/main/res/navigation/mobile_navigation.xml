@@ -3,12 +3,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_all_movies">
+    app:startDestination="@id/nav_all_movies">
 
     <fragment
         android:id="@+id/nav_all_movies"
         android:name="com.example.movietop.view.AllMoviesFragment"
-        android:label="fragment_all"
-        tools:layout="@layout/fragment_all" />
+        android:label="MovieTop"
+        tools:layout="@layout/fragment_all" >
+        <action
+            android:id="@+id/action_nav_all_movies_to_movieFragment"
+            app:destination="@id/movieFragment" />
+        <action
+            android:id="@+id/action_nav_all_movies_to_allFavoritesFragment"
+            app:destination="@id/allFavoritesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="com.example.movietop.view.MovieFragment"
+        android:label="Movie Detail"
+        tools:layout="@layout/fragment_movie" >
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
 
-</navigation>
+    <fragment
+        android:id="@+id/allFavoritesFragment"
+        android:name="com.example.movietop.view.AllFavoritesFragment"
+        android:label="Movie Favorite"
+        tools:layout="@layout/fragment_all_favorites" >
+        <action
+            android:id="@+id/action_allFavoritesFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_allFavoritesFragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.movietop.view.FavoriteFragment"
+        android:label="Movie Favorite Detail"
+        tools:layout="@layout/fragment_favorite">
+        <argument
+            android:name="favoriteId"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>  

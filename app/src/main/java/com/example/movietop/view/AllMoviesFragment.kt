@@ -8,37 +8,45 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.movietop.R
+import com.example.movietop.databinding.FragmentAllBinding
+import com.example.movietop.service.listener.MovieListener
 import com.example.movietop.view.adapter.MovieAdapter
 import com.example.movietop.viewmodel.AllMoviesViewModel
 
 class AllMoviesFragment : Fragment() {
 
-    private lateinit var allMoviesViewModel: AllMoviesViewModel
+    private lateinit var mViewModel: AllMoviesViewModel
     private val mAdapter: MovieAdapter = MovieAdapter()
+
+    private var _binding: FragmentAllBinding? = null
+    private val binding: FragmentAllBinding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, saveInstStat: Bundle?
-    ): View? {
-        allMoviesViewModel = ViewModelProvider(this).get(AllMoviesViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_all, container, false)
+    ): View {
+        mViewModel = ViewModelProvider(this).get(AllMoviesViewModel::class.java)
 
-        val recycler = root.findViewById<RecyclerView>(R.id.recycler_all_movies)
+        _binding = FragmentAllBinding.inflate(inflater, container, false)
+
+        val recycler = binding.recyclerAllMovies
         recycler.layoutManager = LinearLayoutManager(context)
         recycler.adapter = mAdapter
 
-        allMoviesViewModel.load()
+        mViewModel.load()
 
         observer()
-
-        return root
+        return binding.root
     }
 
     private fun observer() {
-        allMoviesViewModel.movieList.observe(viewLifecycleOwner, Observer {
+        mViewModel.movieList.observe(viewLifecycleOwner, Observer {
             mAdapter.updateMovies(it)
         })
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
     }
 
 }

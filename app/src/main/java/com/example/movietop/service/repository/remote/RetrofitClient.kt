@@ -2,7 +2,7 @@ package com.example.movietop.service.repository.remote
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitClient private constructor() {
@@ -19,7 +19,7 @@ class RetrofitClient private constructor() {
             if (!::retrofit.isInitialized) {
                 retrofit = Retrofit.Builder()
                     .baseUrl(baseUrl)
-                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(httpClient.build())
                     .build()

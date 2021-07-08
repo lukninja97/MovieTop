@@ -37,17 +37,7 @@
         android:textSize="12sp"
         android:layout_margin="5dp"
         android:padding="5dp"
-        android:maxLines="2"/>
-
-    <ImageView
-        android:id="@+id/image_favorite"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/view_row"
-        android:src="@drawable/ic_star_false"
-        android:layout_margin="10sp"
-        android:contentDescription="Favorito" />
+        android:maxLines="3"/>
 
     <View
         android:id="@+id/view_row"

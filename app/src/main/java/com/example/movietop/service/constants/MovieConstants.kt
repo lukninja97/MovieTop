@@ -1,4 +1,8 @@
 package com.example.movietop.service.constants
 
-class MovieConstants {
+class MovieConstants private constructor(){
+
+    object BUNDLE {
+        const val MOVIEID = "movieid"
+    }
 }

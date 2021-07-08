@@ -1,10 +1,13 @@
 package com.example.movietop.view.adapter
 
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.example.movietop.R
+import com.example.movietop.databinding.RowMovieBinding
 import com.example.movietop.service.model.MovieModel
+import com.example.movietop.view.AllMoviesFragmentDirections
 import com.example.movietop.view.viewholder.MovieViewHolder
 
 class MovieAdapter: RecyclerView.Adapter<MovieViewHolder>() {
@@ -12,13 +15,19 @@ class MovieAdapter: RecyclerView.Adapter<MovieViewHolder>() {
     private var mMovieList: List<MovieModel> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val item = LayoutInflater.from(parent.context).inflate(R.layout.row_movie, parent, false)
-        return MovieViewHolder(item)
+        val binding = RowMovieBinding.inflate(LayoutInflater.from(parent.context), parent,false)
+        return MovieViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.bind(mMovieList[position])
         holder.setImage(mMovieList[position].poster)
+        holder.itemView.setOnClickListener{
+
+            val movieId = mMovieList[position].id
+            val action = AllMoviesFragmentDirections.actionNavAllMoviesToMovieFragment(movieId)
+            Navigation.findNavController(holder.itemView).navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -29,4 +38,5 @@ class MovieAdapter: RecyclerView.Adapter<MovieViewHolder>() {
         mMovieList = list
         notifyDataSetChanged()
     }
+
 }
