@@ -4,7 +4,6 @@ import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-@Entity(tableName = "movie")
 data class MovieModel(
 
     @SerializedName("id")

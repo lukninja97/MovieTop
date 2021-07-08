@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.movietop.service.model.FavoriteModel
+import com.example.movietop.service.model.MovieModel
 import com.example.movietop.service.repository.FavoriteRepository
 import io.reactivex.schedulers.Schedulers
 
@@ -28,5 +29,17 @@ class FavoriteViewModel(application: Application) : AndroidViewModel(application
 
             })
 
+    }
+
+    fun favorite(favorite: FavoriteModel) {
+        mFavoriteRepository.insertFavorite(favorite)
+    }
+
+    fun desFavorite(id: Int) {
+        mFavoriteRepository.deleteFavorite(id)
+    }
+
+    fun isFavorite(id: Int): Boolean {
+        return mFavoriteRepository.isFavorite(id)
     }
 }

@@ -19,19 +19,27 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
     var movie: LiveData<MovieModel> = mMovie
 
     @SuppressLint("CheckResult")
-    fun load(id: Int){
+    fun load(id: Int) {
         mMovieRepository.getMovie(id)
             .subscribeOn(Schedulers.io())
-            .subscribe ({
+            .subscribe({
                 mMovie.postValue(it)
-            },{
-                e -> e.printStackTrace()
+            }, { e ->
+                e.printStackTrace()
             }, {
 
             })
     }
 
-    fun favorite(favorite: MovieModel){
+    fun favorite(favorite: MovieModel) {
         mFavoriteRepository.insertFavorite(favorite.insert())
+    }
+
+    fun desFavorite(id: Int) {
+        mFavoriteRepository.deleteFavorite(id)
+    }
+
+    fun isFavorite(id: Int): Boolean {
+        return mFavoriteRepository.isFavorite(id)
     }
 }

@@ -13,4 +13,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Circle">
+        <item name="background">@drawable/shape_star</item>
+        <item name="backgroundTint">@color/black</item>
+        <item name="iconTint">@color/gold</item>
+    </style>
 </resources>

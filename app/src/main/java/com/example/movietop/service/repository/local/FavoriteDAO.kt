@@ -13,11 +13,14 @@ interface FavoriteDAO {
     fun insert(movie: FavoriteModel)
 
     @Query("DELETE FROM favorite WHERE id = :id")
-    fun delete(id: Int)
+    fun delete(id: Int): Int
 
     @Query("SELECT * FROM favorite")
     fun getAll(): Observable<List<FavoriteModel>>
 
     @Query("SELECT * FROM favorite WHERE id = :id")
     fun getFavorite(id: Int): Observable<FavoriteModel>
+
+    @Query("SELECT EXISTS (SELECT 1 FROM favorite WHERE id = :id)")
+    fun isFavorite(id: Int): Boolean
 }
