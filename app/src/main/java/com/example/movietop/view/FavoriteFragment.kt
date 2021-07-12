@@ -11,15 +11,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.movietop.R
 import com.example.movietop.databinding.FragmentMovieBinding
-import com.example.movietop.service.listener.MovieListener
 import com.example.movietop.viewmodel.FavoriteViewModel
-import com.example.movietop.viewmodel.MovieViewModel
 import com.squareup.picasso.Picasso
 
 class FavoriteFragment : Fragment() {
 
     private lateinit var mFavoriteViewModel: FavoriteViewModel
-    //private lateinit var mMovieViewModel: MovieViewModel
 
     private val args: FavoriteFragmentArgs by navArgs()
 
@@ -29,9 +26,8 @@ class FavoriteFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         mFavoriteViewModel = ViewModelProvider(this).get(FavoriteViewModel::class.java)
-        //mMovieViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
 
         _binding = FragmentMovieBinding.inflate(inflater, container, false)
 
@@ -45,7 +41,6 @@ class FavoriteFragment : Fragment() {
 
         binding.imageFavorite.setOnClickListener {
             val favoriteId = mFavoriteViewModel.favorite.value!!
-            //val movieId = mMovieViewModel.movie.value!!
             if (mFavoriteViewModel.isFavorite(favoriteId.id)) {
                 mFavoriteViewModel.desFavorite(favoriteId.id)
                 binding.imageFavorite.setImageResource(R.drawable.ic_star_false)

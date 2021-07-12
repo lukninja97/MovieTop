@@ -6,7 +6,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.movietop.service.model.FavoriteModel
-import com.example.movietop.service.model.MovieModel
 import com.example.movietop.service.repository.FavoriteRepository
 import io.reactivex.schedulers.Schedulers
 

@@ -2,12 +2,8 @@ package com.example.movietop.view.viewholder
 
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.movietop.R
 import com.example.movietop.databinding.RowMovieBinding
-import com.example.movietop.service.listener.MovieListener
-import com.example.movietop.service.model.FavoriteModel
 import com.example.movietop.service.model.MovieModel
-import com.example.movietop.service.repository.MovieRepository
 import com.squareup.picasso.Picasso
 
 class MovieViewHolder(private val binding: RowMovieBinding) :
@@ -19,7 +15,7 @@ class MovieViewHolder(private val binding: RowMovieBinding) :
     }
 
     fun setImage(index: String) {
-        val imgPoster = binding.imageMovie //itemView.findViewById<ImageView>(R.id.image_movie)
+        val imgPoster = binding.imageMovie
         Picasso.get().load("https://image.tmdb.org/t/p/original$index").into(imgPoster)
     }
 }

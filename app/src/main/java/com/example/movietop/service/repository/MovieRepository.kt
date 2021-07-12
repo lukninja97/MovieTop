@@ -15,14 +15,6 @@ class MovieRepository(context: Context){
         return mRemote.getMovies()
     }
 
-    fun updateStatus(id: Int, favorite: Boolean){
-        if (favorite){
-            mRemote.getMovie(id)
-        } else{
-            mRemote.getMovie(id)
-        }
-    }
-
     fun getMovie(id: Int): Observable<MovieModel> {
         return mRemote.getMovie(id)
     }

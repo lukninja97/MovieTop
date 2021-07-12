@@ -28,59 +28,99 @@
         android:textSize="36sp"
         android:textStyle="bold"/>
 
+    <TextView
+        android:id="@+id/text_datat"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:text="Release Date"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/image_nota"
+        app:layout_constraintTop_toBottomOf="@+id/image_title" />
+
+    <TextView
+        android:id="@+id/text_notat"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:text="Note (Counts)"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/text_datat"
+        app:layout_constraintTop_toBottomOf="@+id/image_title" />
+
     <ImageView
         android:id="@+id/image_data"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/ic_data"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/text_data"
-        app:layout_constraintTop_toBottomOf="@+id/image_title"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/text_datat"
+        android:layout_marginTop="0dp"/>
 
     <TextView
         android:id="@+id/text_data"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="0dp"
         android:text="Data"
-        android:textSize="26dp"
+        android:textSize="24dp"
         app:layout_constraintLeft_toRightOf="@+id/image_data"
         app:layout_constraintRight_toLeftOf="@+id/image_nota"
-        app:layout_constraintTop_toBottomOf="@+id/image_title"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/text_datat" />
 
     <ImageView
         android:id="@+id/image_nota"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/ic_nota"
-        app:layout_constraintLeft_toRightOf="@+id/text_data"
+        app:layout_constraintLeft_toRightOf="@+id/view_div"
         app:layout_constraintRight_toLeftOf="@+id/text_nota"
-        app:layout_constraintTop_toBottomOf="@+id/image_title"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/text_notat"
+        android:layout_marginTop="0dp"/>
 
     <TextView
         android:id="@+id/text_nota"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="0dp"
         android:text="Nota"
         android:textSize="20sp"
         app:layout_constraintLeft_toRightOf="@+id/image_nota"
         app:layout_constraintRight_toLeftOf="@+id/text_votos"
-        app:layout_constraintTop_toBottomOf="@+id/image_title" />
+        app:layout_constraintTop_toBottomOf="@+id/text_notat" />
 
     <TextView
         android:id="@+id/text_votos"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="0dp"
         android:text="Votos"
         android:textSize="20sp"
         app:layout_constraintLeft_toRightOf="@+id/text_nota"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_title" />
+        app:layout_constraintTop_toBottomOf="@+id/text_notat" />
+    <View
+        android:id="@+id/view_div"
+        android:layout_width="2dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/image_title"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@color/black"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/image_data"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@color/black"/>
 
     <TextView
         android:id="@+id/text_sinopse"
@@ -101,7 +141,8 @@
         android:text="Resumo"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_sinopse" />
+        app:layout_constraintTop_toBottomOf="@+id/text_sinopse"
+        android:textColor="@color/gray"/>
 
     <ImageView
         android:id="@+id/image_favorite"

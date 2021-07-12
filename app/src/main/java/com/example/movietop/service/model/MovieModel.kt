@@ -1,6 +1,5 @@
 package com.example.movietop.service.model
 
-import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 

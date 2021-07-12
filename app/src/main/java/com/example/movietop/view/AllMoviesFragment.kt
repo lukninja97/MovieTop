@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movietop.databinding.FragmentAllBinding
-import com.example.movietop.service.listener.MovieListener
 import com.example.movietop.view.adapter.MovieAdapter
 import com.example.movietop.viewmodel.AllMoviesViewModel
 

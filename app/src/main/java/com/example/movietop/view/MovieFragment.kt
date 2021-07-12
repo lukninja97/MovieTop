@@ -74,7 +74,7 @@ class MovieFragment : Fragment() {
     }
 
     private fun setImage(index: String) {
-        val imgPoster = binding.imageTitle //itemView.findViewById<ImageView>(R.id.image_movie)
+        val imgPoster = binding.imageTitle
         Picasso.get().load("https://image.tmdb.org/t/p/original$index").into(imgPoster)
     }
 

@@ -9,9 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movietop.databinding.FragmentAllFavoritesBinding
-import com.example.movietop.service.listener.MovieListener
 import com.example.movietop.view.adapter.FavoriteAdapter
-import com.example.movietop.view.adapter.MovieAdapter
 import com.example.movietop.viewmodel.AllFavoritesViewModel
 
 class AllFavoritesFragment : Fragment() {
