@@ -15,8 +15,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".view.MainActivity"
-            android:label="MovieTop"
-            android:theme="@style/Theme.MovieTop.NoActionBar">
+            android:label="MovieTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

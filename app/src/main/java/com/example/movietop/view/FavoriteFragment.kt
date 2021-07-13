@@ -13,10 +13,13 @@ import com.example.movietop.R
 import com.example.movietop.databinding.FragmentMovieBinding
 import com.example.movietop.viewmodel.FavoriteViewModel
 import com.squareup.picasso.Picasso
+import java.text.SimpleDateFormat
+import java.util.*
 
 class FavoriteFragment : Fragment() {
 
     private lateinit var mFavoriteViewModel: FavoriteViewModel
+    private val mDateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH)
 
     private val args: FavoriteFragmentArgs by navArgs()
 
@@ -54,16 +57,25 @@ class FavoriteFragment : Fragment() {
 
         mFavoriteViewModel.favorite.observe(viewLifecycleOwner, Observer {
             binding.apply {
+                val date = SimpleDateFormat("yyyy-MM-dd").parse(it.data)
                 setImage(it.fundo)
                 textTitle.text = it.title
                 textResumo.text = it.resumo
-                textData.text = it.data
+                textData.text = mDateFormat.format(date)
                 textNota.text = it.nota
                 textVotos.text = "(${it.votos})"
                 if (mFavoriteViewModel.isFavorite(it.id)) {
                     binding.imageFavorite.setImageResource(R.drawable.ic_star_true)
                 } else {
                     binding.imageFavorite.setImageResource(R.drawable.ic_star_false)
+                }
+
+                if(it.nota > "8"){
+                    imageNota.setImageResource(R.drawable.ic_nota)
+                } else if (it.nota > "7"){
+                    imageNota.setImageResource(R.drawable.ic_nota_media)
+                } else{
+                    imageNota.setImageResource(R.drawable.ic_nota_baixa)
                 }
             }
         })
@@ -77,6 +89,7 @@ class FavoriteFragment : Fragment() {
     private fun setImage(index: String) {
         val imgPoster = binding.imageTitle
         Picasso.get().load("https://image.tmdb.org/t/p/original$index").into(imgPoster)
+        imgPoster.setAlpha(0.4f)
     }
 
 }

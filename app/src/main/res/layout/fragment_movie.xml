@@ -14,7 +14,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/text_title"
@@ -26,7 +26,10 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/image_title"
         android:textSize="36sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textAlignment="center"/>
+
     <TextView
         android:id="@+id/text_datat"
         android:layout_width="0dp"
@@ -67,7 +70,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="0dp"
         android:text="Data"
-        android:textSize="24dp"
+        android:textSize="22dp"
         app:layout_constraintLeft_toRightOf="@+id/image_data"
         app:layout_constraintRight_toLeftOf="@+id/image_nota"
         app:layout_constraintTop_toBottomOf="@+id/text_datat" />
@@ -102,7 +105,8 @@
         android:textSize="20sp"
         app:layout_constraintLeft_toRightOf="@+id/text_nota"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_notat" />
+        app:layout_constraintTop_toBottomOf="@+id/text_notat"
+        android:textColor="@color/gray"/>
 
     <View
         android:id="@+id/view_div"
@@ -144,7 +148,8 @@
         android:textColor="@color/gray"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_sinopse" />
+        app:layout_constraintTop_toBottomOf="@+id/text_sinopse"
+        android:padding="2dp"/>
 
     <ImageView
         android:id="@+id/image_favorite"

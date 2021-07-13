@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/allFavoritesFragment"
         android:name="com.example.movietop.view.AllFavoritesFragment"
-        android:label="Movie Favorite"
+        android:label="Movie Favorites"
         tools:layout="@layout/fragment_all_favorites" >
         <action
             android:id="@+id/action_allFavoritesFragment_to_favoriteFragment"
