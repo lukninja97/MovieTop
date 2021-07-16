@@ -39,7 +39,7 @@ Um aplicativo onde você encontra os filmes populares que estão em cartaz ou v�
 
 ![Detalhes](https://snz04pap002files.storage.live.com/y4mCfqJ5pR5IGnKbwCJSq1S53N8Rcv9k8Cjy8LlBNeguYb31pMcXHFNW_sl4rkL-SrCHLPnsygsUisxIBKwdxUBSqwt8qoy1etBdMvdzWE-QKMMPx__zRNRFaYVKn7s696-ivxeGE1pItGgG8Bu3c6leTIZXmOrffcdfeVtHSc05Hfi1xOItbyCCyNyDYeFMvS6?width=408&height=865&cropmode=none)
 ## License
-![Android](https://developer.android.com/images/spot-icons/android-studio.svg?hl=pt)![Kotlin](https://developer.android.com/images/spot-icons/kotlin-certified.svg?hl=pt)
+![Android](https://developer.android.com/images/spot-icons/android-studio.svg?hl=pt)![Kotlin](https://developer.android.com/images/spot-icons/kotlin-certified.svg?hl=pt)![Apache](https://snz04pap002files.storage.live.com/y4mS5IY_N6eTc6_UXO_YMZwfy6rj0-7UEwT25U4pqlFruJCTspTdL12UulgM35aDFtqTRjP9HEC5IC0ouXyjBVXOVAHHW38u3P6sxN-4AKItY0ekQy_gAWKpiawyvYi621lYHEOWoGs9aptC_OwxDSx2iahJRwBp37OrqN_ifUF8FG725KDTh3hhlcKNYK_2LG9?width=256&height=129&cropmode=none)
 
 **Free Software, Hell Yeah!**
 
