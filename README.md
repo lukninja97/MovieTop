@@ -39,7 +39,7 @@ Um aplicativo onde você encontra os filmes populares que estão em cartaz ou v�
 
 ![Detalhes](https://snz04pap002files.storage.live.com/y4mCfqJ5pR5IGnKbwCJSq1S53N8Rcv9k8Cjy8LlBNeguYb31pMcXHFNW_sl4rkL-SrCHLPnsygsUisxIBKwdxUBSqwt8qoy1etBdMvdzWE-QKMMPx__zRNRFaYVKn7s696-ivxeGE1pItGgG8Bu3c6leTIZXmOrffcdfeVtHSc05Hfi1xOItbyCCyNyDYeFMvS6?width=408&height=865&cropmode=none)
 ## License
-![Android](https://developer.android.com/images/spot-icons/android-studio.svg?hl=pt)![Kotlin](https://developer.android.com/images/spot-icons/kotlin-certified.svg?hl=pt)
+![Android](https://developer.android.com/images/spot-icons/android-studio.svg?hl=pt)![Kotlin](https://developer.android.com/images/spot-icons/kotlin-certified.svg?hl=pt)![Apache](https://www.apache.org/img/asf-estd-1999-logo.jpg)
 
 **Free Software, Hell Yeah!**
 
