@@ -4,7 +4,7 @@
 # DESAFIO - Filme
 ## Movie Top
 
-![MovieTop](https://snz04pap002files.storage.live.com/y4mMOxdrN5h8N8-B7I4-9yOXvPgdbQaogJmJeZZPOY3ppdb5ZNSJD9fUJXBPxd5oDhnSibAHITb9hw4f2Dti9XaGpC7wEBos_FOBqfRISlpJK0VTjMRepiPpzWBwjagKf9irZnRXZ3yThxrrf1P0o1jZ9hU-LL-Ai_xMyaB1vjoQWu6XJXqUeOhyCpDFUbKuSQa?width=512&height=512&cropmode=none)
+![MovieTop](https://snz04pap002files.storage.live.com/y4mMOxdrN5h8N8-B7I4-9yOXvPgdbQaogJmJeZZPOY3ppdb5ZNSJD9fUJXBPxd5oDhnSibAHITb9hw4f2Dti9XaGpC7wEBos_FOBqfRISlpJK0VTjMRepiPpzWBwjagKf9irZnRXZ3yThxrrf1P0o1jZ9hU-LL-Ai_xMyaB1vjoQWu6XJXqUeOhyCpDFUbKuSQa?width=256&height=256&cropmode=none)
 
 
 Um aplicativo onde você encontra os filmes populares que estão em cartaz ou vão lançar em breve, podendo favoritar os filmes que mais gostar salvando na sua lista de favoritos.
