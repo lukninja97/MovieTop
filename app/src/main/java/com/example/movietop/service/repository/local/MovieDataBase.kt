@@ -19,7 +19,7 @@ abstract class MovieDataBase : RoomDatabase() {
             if (!Companion::INSTANCE.isInitialized) {
                 synchronized(this) {
                     INSTANCE = Room.databaseBuilder(context, MovieDataBase::class.java, "movie_database")
-                        .allowMainThreadQueries()
+                        .fallbackToDestructiveMigration()
                         .build()
                 }
             }

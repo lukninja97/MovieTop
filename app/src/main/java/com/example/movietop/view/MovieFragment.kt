@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.movietop.R
 import com.example.movietop.databinding.FragmentMovieBinding
+import com.example.movietop.service.model.MovieModel
 import com.example.movietop.viewmodel.MovieViewModel
 import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
@@ -22,6 +22,8 @@ class MovieFragment : Fragment() {
     private val mDateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH)
 
     private val args: MovieFragmentArgs by navArgs()
+    private var isFavorite = false
+    private lateinit var movie : MovieModel
 
     private var _binding: FragmentMovieBinding? = null
     private val binding: FragmentMovieBinding get() = _binding!!
@@ -43,19 +45,24 @@ class MovieFragment : Fragment() {
     private fun observe() {
 
         binding.imageFavorite.setOnClickListener {
-            val favoriteId = mMovieViewModel.movie.value!!
-            if (mMovieViewModel.isFavorite(favoriteId.id)) {
-                mMovieViewModel.desFavorite(favoriteId.id)
-                binding.imageFavorite.setImageResource(R.drawable.ic_star_false)
+            if (isFavorite){
+                isFavorite = false
+                mMovieViewModel.desFavorite(args.movieId)
+                setFavorite(isFavorite)
                 Toast.makeText(context, "Filme Desfavoritado", Toast.LENGTH_SHORT).show()
-            } else {
-                mMovieViewModel.favorite(favoriteId)
-                binding.imageFavorite.setImageResource(R.drawable.ic_star_true)
+            }else{
+                mMovieViewModel.favorite(movie)
+                isFavorite = true
+                setFavorite(isFavorite)
                 Toast.makeText(context, "Filme Favoritado", Toast.LENGTH_SHORT).show()
             }
         }
 
-        mMovieViewModel.movie.observe(viewLifecycleOwner, Observer {
+        mMovieViewModel.isFav.observe(viewLifecycleOwner, {
+            setFavorite(it)
+        })
+
+        mMovieViewModel.movie.observe(viewLifecycleOwner, {
             binding.apply {
                 val date = SimpleDateFormat("yyyy-MM-dd").parse(it.data)
                 setImage(it.fundo)
@@ -64,11 +71,8 @@ class MovieFragment : Fragment() {
                 textData.text = mDateFormat.format(date)
                 textNota.text = it.nota
                 textVotos.text = "(${it.votos})"
-                if (mMovieViewModel.isFavorite(it.id)) {
-                    binding.imageFavorite.setImageResource(R.drawable.ic_star_true)
-                } else {
-                    binding.imageFavorite.setImageResource(R.drawable.ic_star_false)
-                }
+                movie = it
+                mMovieViewModel.isFavorite(it.id)
 
                 if(it.nota > "8"){
                     imageNota.setImageResource(R.drawable.ic_nota)
@@ -79,6 +83,15 @@ class MovieFragment : Fragment() {
                 }
             }
         })
+    }
+
+    private fun setFavorite(id: Boolean){
+        if (id) {
+            binding.imageFavorite.setImageResource(R.drawable.ic_star_true)
+        } else {
+            binding.imageFavorite.setImageResource(R.drawable.ic_star_false)
+        }
+        isFavorite = id
     }
 
     private fun loadMovie() {

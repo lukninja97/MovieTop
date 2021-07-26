@@ -6,10 +6,11 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movietop.databinding.RowMovieBinding
 import com.example.movietop.service.model.FavoriteModel
+import com.example.movietop.service.model.MovieModel
 import com.example.movietop.view.AllFavoritesFragmentDirections
 import com.example.movietop.view.viewholder.FavoriteViewHolder
 
-class FavoriteAdapter: RecyclerView.Adapter<FavoriteViewHolder>() {
+class FavoriteAdapter(private var movies: List<FavoriteModel>?, val clickListener: (FavoriteModel) -> Unit): RecyclerView.Adapter<FavoriteViewHolder>() {
 
     private var mFavoriteList: List<FavoriteModel> = arrayListOf()
 
@@ -19,14 +20,14 @@ class FavoriteAdapter: RecyclerView.Adapter<FavoriteViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
-        holder.bind(mFavoriteList[position])
+        holder.bind(mFavoriteList[position], clickListener)
         holder.setImage(mFavoriteList[position].poster)
-        holder.itemView.setOnClickListener{
+        /*holder.itemView.setOnClickListener{
 
-            val favoriteId = mFavoriteList[position].id
-            val action = AllFavoritesFragmentDirections.actionAllFavoritesFragmentToFavoriteFragment(favoriteId)
+            val movieId = mFavoriteList[position].id
+            val action = AllFavoritesFragmentDirections.actionAllFavoritesFragmentToMovieFragment(movieId)
             Navigation.findNavController(holder.itemView).navigate(action)
-        }
+        }*/
     }
 
     override fun getItemCount(): Int {

@@ -9,9 +9,11 @@ import com.squareup.picasso.Picasso
 class MovieViewHolder(private val binding: RowMovieBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(movie: MovieModel) {
+    fun bind(movie: MovieModel, clickListener: (MovieModel) -> Unit) {
         binding.textTitle.text = movie.title
         binding.textResumo.text = movie.resumo
+
+        binding.root.setOnClickListener { clickListener(movie) }
     }
 
     fun setImage(index: String) {

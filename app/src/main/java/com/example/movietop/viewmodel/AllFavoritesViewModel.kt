@@ -1,30 +1,45 @@
 package com.example.movietop.viewmodel
 
-import android.annotation.SuppressLint
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.*
 import com.example.movietop.service.model.FavoriteModel
 import com.example.movietop.service.repository.FavoriteRepository
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class AllFavoritesViewModel(application: Application) : AndroidViewModel(application) {
+class AllFavoritesViewModel(application: Application) : AndroidViewModel(application),
+    LifecycleObserver {
+
     private val mFavoriteRepository = FavoriteRepository(application)
 
     private val mFavoriteList = MutableLiveData<List<FavoriteModel>>()
     val favoriteList: LiveData<List<FavoriteModel>> = mFavoriteList
 
-    @SuppressLint("CheckResult")
-    fun load(){
-        mFavoriteRepository.loadFavorites()
-            .subscribeOn(Schedulers.io())
-            .subscribe({
-                mFavoriteList.postValue(it)
-            },{
-                e -> e.printStackTrace()
-            },{
+    private val compositeDisposable = CompositeDisposable()
 
-            })
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    fun load() {
+        compositeDisposable.add(
+            mFavoriteRepository.loadFavorites()
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io())
+                .subscribe({
+                    mFavoriteList.postValue(it)
+                }, { e ->
+                    e.printStackTrace()
+                }, {
+
+                })
+        )
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    fun fullClear() {
+        compositeDisposable.clear()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        fullClear()
     }
 }

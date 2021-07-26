@@ -1,31 +1,44 @@
 package com.example.movietop.viewmodel
 
-import android.annotation.SuppressLint
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.*
 import com.example.movietop.service.model.MovieModel
 import com.example.movietop.service.repository.MovieRepository
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class AllMoviesViewModel(application: Application) : AndroidViewModel(application) {
+class AllMoviesViewModel(application: Application) : AndroidViewModel(application), LifecycleObserver {
 
     private val mMovieRepository = MovieRepository(application)
 
     private val mMovieList = MutableLiveData<List<MovieModel>>()
     val movieList: LiveData<List<MovieModel>> = mMovieList
 
-    @SuppressLint("CheckResult")
-    fun load() {
-        mMovieRepository.loadMovies()
-            .subscribeOn(Schedulers.io())
-            .subscribe({
-                mMovieList.postValue(it.results)
-            }, { e ->
-                e.printStackTrace()
-            }, {
+    private val compositeDisposable = CompositeDisposable()
 
-            })
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    fun load() {
+        compositeDisposable.add(
+            mMovieRepository.loadMovies()
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io())
+                .subscribe({
+                    mMovieList.postValue(it.results)
+                }, { e ->
+                    e.printStackTrace()
+                }, {
+
+                })
+        )
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    fun fullClear(){
+        compositeDisposable.clear()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        fullClear()
     }
 }

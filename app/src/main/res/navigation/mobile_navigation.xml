@@ -24,7 +24,8 @@
         tools:layout="@layout/fragment_movie" >
         <argument
             android:name="movieId"
-            app:argType="integer" />
+            app:argType="integer"
+            android:defaultValue="0"/>
     </fragment>
 
     <fragment
@@ -33,20 +34,8 @@
         android:label="Movie Favorites"
         tools:layout="@layout/fragment_all_favorites" >
         <action
-            android:id="@+id/action_allFavoritesFragment_to_favoriteFragment"
-            app:destination="@id/favoriteFragment" />
-        <action
             android:id="@+id/action_allFavoritesFragment_to_movieFragment"
             app:destination="@id/movieFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/favoriteFragment"
-        android:name="com.example.movietop.view.FavoriteFragment"
-        android:label="Movie Favorite Detail"
-        tools:layout="@layout/fragment_favorite">
-        <argument
-            android:name="favoriteId"
-            app:argType="integer" />
     </fragment>
 
 </navigation>  

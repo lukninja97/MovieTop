@@ -4,10 +4,10 @@
         android:id="@+id/nav_all_movies"
         android:enabled="true"
         android:icon="@drawable/icon_all"
-        android:title="Filmes"/>
+        android:title="Movies"/>
     <item
         android:id="@+id/allFavoritesFragment"
         android:enabled="true"
         android:icon="@drawable/ic_star_true"
-        android:title="Favoritos"/>
+        android:title="Favorites"/>
 </menu>
